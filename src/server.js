@@ -6,8 +6,6 @@ import template from './template';
 
 const server = express();
 
-server.set('port', process.env.PORT || 3000);
-
 server.use('/assets', express.static('assets'));
 
 server.get('/', (req, res) => {
@@ -22,12 +20,7 @@ server.get('/', (req, res) => {
   }));
 });
 
-
-
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
-});
-
-server.listen(server.get('port'), () => {
+var port = process.env.PORT || 3000;
+server.listen(port, () => {
 	console.log("Listening on port: " + port);
 });
